@@ -5,10 +5,9 @@ import java.io.File;
 public class ArborescenceSimple {
 
 
-   public void listArborescence(String pathDir){
-       File file = new File(pathDir);
+   public void listArborescence(File pathDir){
 
-       for (File fileElement: file.listFiles()
+       for (File fileElement: pathDir.listFiles()
             ) {
            System.out.println(fileElement);
        }
