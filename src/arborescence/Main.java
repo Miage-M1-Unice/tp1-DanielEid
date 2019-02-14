@@ -20,6 +20,7 @@ public class Main {
 
         c.listArborescenceAnonyme(new File("."));
         //c.listArborescenceIntern(new File("."));
+        c.listArborescenceIntern(new File("."));
 
 
     }

@@ -5,16 +5,17 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ArborescenceFiltre {
 
-    public void listArborescenceAnonyme(File pathFile){
+    public void listArborescenceAnonyme(File pathFile) {
 
-
-        for (File fileElement: Objects.requireNonNull(pathFile.listFiles(new FileFilter() {
+        for (File fileElement : Objects.requireNonNull(pathFile.listFiles(new FileFilter() {
             @Override
             public boolean accept(File pathname) {
-                if (pathname.isDirectory()||pathname.getName().contains(".java")) return true;
+                if (pathname.isDirectory() || pathname.getName().contains(".java")) return true;
                 else return false;
             }
         }))
@@ -30,32 +31,31 @@ public class ArborescenceFiltre {
         }
     }
 
-   /* public void listArborescenceIntern(File pathFile){
+    public void listArborescenceIntern(File pathFile) {
 
+        ArborescenceFilter af = new ArborescenceFilter();
 
-        for (File fileElement: pathFile.listFiles()
+        for (File fileElement : Objects.requireNonNull(pathFile.listFiles(new ArborescenceFilter()))
                 ) {
 
-            if (fileElement.isDirectory())
-                this.listArborescenceIntern(fileElement);
+            if (fileElement.isDirectory()) {
+                this.listArborescenceAnonyme(fileElement);
+            }
 
-            System.out.println(fileElement);
+            if (fileElement.isFile()) {
+                System.out.println(fileElement);
+            }
         }
-    }*/
+    }
 
 
-    /*private class ArborescenceFilter implements FilenameFilter {
-
-        private String filtre;
-
-        public ArborescenceFilter(String filtre) {
-            this.filtre = filtre;
-        }
+    private class ArborescenceFilter implements FilenameFilter {
 
         @Override
         public boolean accept(File dir, String name) {
-            return dir.isFile();
+            if (dir.isDirectory() || dir.getName().contains(".java")) return true;
+            else return false;
         }
-    }*/
 
+    }
 }
