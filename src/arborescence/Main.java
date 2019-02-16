@@ -18,10 +18,10 @@ public class Main {
 
         ArborescenceFiltre c = new ArborescenceFiltre();
 
-        c.listArborescenceAnonyme(new File("."));
+        //c.listArborescenceAnonyme(new File("."));
         //c.listArborescenceIntern(new File("."));
-        c.listArborescenceIntern(new File("."));
-
+       // c.listArborescenceIntern(new File("."));
+        c.listArborescenceExtern(new File("."));
 
     }
 

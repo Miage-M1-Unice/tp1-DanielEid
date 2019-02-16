@@ -48,6 +48,23 @@ public class ArborescenceFiltre {
         }
     }
 
+    public void listArborescenceExtern(File pathFile) {
+
+        ArborescenceFilter af = new ArborescenceFilter();
+
+        for (File fileElement : Objects.requireNonNull(pathFile.listFiles(new ArborescenceFilterExt()))
+                ) {
+
+            if (fileElement.isDirectory()) {
+                this.listArborescenceAnonyme(fileElement);
+            }
+
+            if (fileElement.isFile()) {
+                System.out.println(fileElement);
+            }
+        }
+    }
+
 
     private class ArborescenceFilter implements FilenameFilter {
 
