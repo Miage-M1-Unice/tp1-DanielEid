@@ -1,4 +1,4 @@
-package arborescence;
+package td1.arborescence;
 
 import java.io.File;
 

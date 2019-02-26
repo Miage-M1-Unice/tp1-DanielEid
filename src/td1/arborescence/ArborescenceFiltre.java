@@ -1,12 +1,9 @@
-package arborescence;
+package td1.arborescence;
 
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ArborescenceFiltre {
 
